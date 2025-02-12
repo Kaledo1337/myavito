@@ -10,7 +10,7 @@
 
 ## 1. 
 
-<img src="https://github.com/Kaledo1337/myavito/images/blob/main/bug1_breadcrumbs.png" title="bug" alt="bug" style ="max-width: 100%"/>
+<img src="https://github.com/Kaledo1337/myavito/blob/main/images/bug1_breadcrumbs.png" title="bug" alt="bug" style ="max-width: 100%"/>
 
 ### Путь навигации отображён некорректно. "Хлебные крошки" должны правильно отображать путь на странице, он должен соответствовать структуре сайта. На скриншоте же приведён не полный вариант навигации.
 ### Правильно :Главная > Хобби и отдых > Велосипеды > Горные
