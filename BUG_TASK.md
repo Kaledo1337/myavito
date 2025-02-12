@@ -1,6 +1,6 @@
 # Задание
 ## Перечислить все имеющиеся баги на предоставленном скриншоте, указать их приоритет
-<img src="https://github.com/Kaledo1337/myavito/images/blob/main/avito.jpg" title="avitoQA" alt="avitoQA" style ="max-width: 100%"/>
+<img src="https://github.com/Kaledo1337/myavito/blob/main/images/avito.jpg" title="avitoQA" alt="avitoQA" style ="max-width: 100%"/>
 
 ---
 
