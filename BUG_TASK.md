@@ -92,7 +92,7 @@
 ---
 
 ## 10.
-<img src="https://github.com/Kaledo1337/myavito/blob/main/images/bug10_notMoscow.png" title="bug" alt="bug" style ="max-width: 100%"/>
+<img src="https://github.com/Kaledo1337/myavito/blob/main/images/bug10_not_Moscow.png" title="bug" alt="bug" style ="max-width: 100%"/>
 
 ### На веб - сайте осуществляется фильтрация, в результате которой сначала должны выводится московские объявления, но на скриншоте объявление с г.Липецк отобразилось раньше московских. Данный баг имеет средний приоритет из - за того, что фильтрами в общем не запрещено выводить объявления из других городов. 
 ### Приоритет Medium
