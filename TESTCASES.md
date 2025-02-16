@@ -665,15 +665,15 @@
 ```json
 [
     {
-        "createdAt": <string>,
-        "id": <string>,
-        "name": <text>,
-        "price": <integer>,
-        "sellerId": <integer>,
+        "createdAt": "<string>",
+        "id": "<string>",
+        "name": "<string>",
+        "price": "<integer>",
+        "sellerId": "<integer>",
         "statistics": {
-            "contacts": <integer>,
-            "likes": <integer>,
-            "viewCount": <integer>
+            "contacts": "<integer>",
+            "likes": "<integer>",
+            "viewCount": "<integer>"
         }
     }
 ]
