@@ -15,12 +15,14 @@
 ---
 * ### Открыть Postman
 * ### Нажать в левом верхнем углу на кнопку `import`.
+   <img src="https://github.com/Kaledo1337/myavito/blob/main/images/import_avito.png" title="avitoQA" alt="avitoQA" style ="max-width: 100%"/>
 * ### Выбрать файл с именем `AvitoCollection.postman_collection.json`.
 ---
 ## Запуск коллекции.
 ---
 * ### Нажать на 3 горизонтальные точки рядом с именем коллекции.
 * ### В выпавшем списке выбрать пункт "Run Collection".
+   <img src="https://github.com/Kaledo1337/myavito/blob/main/images/run_collection.png" title="avitoQA" alt="avitoQA" style ="max-width: 100%"/>
 ---
 ## Анализ результатов.
 ---
