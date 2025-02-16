@@ -1,0 +1,1304 @@
+{
+	"info": {
+		"_postman_id": "be722638-4a11-47fc-9295-c21c44dda151",
+		"name": "Avito Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "40911540"
+	},
+	"item": [
+		{
+			"name": "1) create an ad",
+			"item": [
+				{
+					"name": "1. sucess_200",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Проверка наличия ключа 'status' и его типа\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData).to.have.property(\"status\");\r",
+									"    pm.expect(jsonData.status).to.be.a(\"string\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 154343,\r\n            \"name\": \"QAwinter\",\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. low_sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 10,\r\n            \"name\": \"QAwinter\",\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. badtype_of_sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": \"text\",\r\n            \"name\": \"QAwinter\",\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4. null_sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": \"\",\r\n            \"name\": \"QAwinter\",\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5. without_sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"name\": \"QAwinter\",\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6. bad_type_of_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 123124,\r\n            \"name\": 123,\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "7. null_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 123124,\r\n            \"name\": 123,\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "8. without_name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 623124,\r\n            \"price\": 50,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "9. badtype_of_price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 173124,\r\n            \"name\": \"Mask\",\r\n            \"price\": \"abc\",\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "10. negative_price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 184124,\r\n            \"name\": \"Mask\",\r\n            \"price\": -10,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "11. null_price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 323124,\r\n            \"name\": \"Mask\",\r\n            \"price\": null,\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "12. without_price",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\t\"mode\": \"raw\",\r\n\t\t\"raw\": {\r\n            \"sellerID\": 537124,\r\n            \"name\": \"Mask\",\r\n            \"statistics\": {\r\n                            \"contacts\":5,\r\n                            \"likes\":123,\r\n                            \"viewCount\":12\r\n                           }\r\n                },\r\n\t\t\"options\": {\r\n\t\t\t\t\t\"raw\": {\r\n\t\t\t\t\t\t    \"headerFamily\": \"json\",\r\n\t\t\t\t\t\t\t\"language\": \"json\"\r\n\t\t\t\t\t\t   }\r\n\t\t\t\t   }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "13. query_parametrs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"mode\": \"raw\",\r\n    \"raw\": {\r\n        \"sellerID\": 123123,\r\n        \"name\": \"maks\",\r\n        \"price\": 10\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item?key=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "14. null_body",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Request body matches expected response structure\", function () {\r",
+									"    pm.expect(requestBody).to.have.all.keys(Object.keys(expectedResponse));\r",
+									"    pm.expect(requestBody.result).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages).to.be.an('object');\r",
+									"    pm.expect(requestBody.result.messages.nostrudffb).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.messages.Ut__).to.be.a('string');\r",
+									"    pm.expect(requestBody.result.message).to.be.a('string');\r",
+									"    pm.expect(requestBody.status).to.be.a('string');\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "2) get an ad by its ID",
+			"item": [
+				{
+					"name": "1. get ad by valid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('array');\r",
+									"    pm.expect(responseJson[0]).to.have.all.keys([\r",
+									"        \"createdAt\",\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"price\",\r",
+									"        \"sellerId\",\r",
+									"        \"statistics\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson[0].createdAt).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].id).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].name).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].price).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].sellerId).to.be.a('number');\r",
+									"\r",
+									"    pm.expect(responseJson[0].statistics).to.be.an('object');\r",
+									"    pm.expect(responseJson[0].statistics).to.have.all.keys([\r",
+									"        \"contacts\",\r",
+									"        \"likes\",\r",
+									"        \"viewCount\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson[0].statistics.contacts).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].statistics.likes).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].statistics.viewCount).to.be.a('number');\r",
+									"});\r",
+									"pm.test(\"ID in URL matches ID in response body\", function () {\r",
+									"    const urlId = pm.request.url.path[3]; \r",
+									"    const responseJson = pm.response.json();\r",
+									"    const responseId = responseJson[0].id;\r",
+									"\r",
+									"    pm.expect(urlId).to.equal(responseId);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item/bbc4250b-ecb5-45ce-af16-2c19b83dba97",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item",
+								"bbc4250b-ecb5-45ce-af16-2c19b83dba97"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. try to get ad with nonexistent ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('object');\r",
+									"    pm.expect(responseJson).to.have.all.keys([\r",
+									"        \"result\",\r",
+									"        \"status\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result).to.be.an('object');\r",
+									"    pm.expect(responseJson.result).to.have.all.keys([\r",
+									"        \"message\",\r",
+									"        \"messages\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result.message).to.be.a('string');\r",
+									"    pm.expect(responseJson.result.messages).to.be.an('null');\r",
+									"    pm.expect(responseJson.status).to.equal(\"404\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item/11111111-0000-2222-3333-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item",
+								"11111111-0000-2222-3333-000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. try to get an ad with invalid ID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('object');\r",
+									"    pm.expect(responseJson).to.have.all.keys([\r",
+									"        \"result\",\r",
+									"        \"status\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result).to.be.an('object');\r",
+									"    pm.expect(responseJson.result).to.have.all.keys([\r",
+									"        \"message\",\r",
+									"        \"messages\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result.message).to.be.a('string');\r",
+									"    pm.expect(responseJson.result.messages).to.be.an('object');\r",
+									"    pm.expect(responseJson.status).to.equal(\"400\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/item/111111111111111111111111",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"item",
+								"111111111111111111111111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "3) get all ads by sellerID",
+			"item": [
+				{
+					"name": "1. get ads with valid sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('array');\r",
+									"    pm.expect(responseJson[0]).to.have.all.keys([\r",
+									"        \"createdAt\",\r",
+									"        \"id\",\r",
+									"        \"name\",\r",
+									"        \"price\",\r",
+									"        \"sellerId\",\r",
+									"        \"statistics\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson[0].createdAt).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].id).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].name).to.be.a('string');\r",
+									"    pm.expect(responseJson[0].price).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].sellerId).to.be.a('number');\r",
+									"\r",
+									"    pm.expect(responseJson[0].statistics).to.be.an('object');\r",
+									"    pm.expect(responseJson[0].statistics).to.have.all.keys([\r",
+									"        \"contacts\",\r",
+									"        \"likes\",\r",
+									"        \"viewCount\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson[0].statistics.contacts).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].statistics.likes).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].statistics.viewCount).to.be.a('number');\r",
+									"});\r",
+									"\r",
+									"pm.test(\"sellerId in URL matches sellerId in response body\", function () {\r",
+									"    const url = pm.request.url;\r",
+									"    const urlSellerId = url.path[3]; \r",
+									"    const responseJson = pm.response.json();\r",
+									"    const responseSellerId = responseJson[0].sellerId;\r",
+									"\r",
+									"    pm.expect(parseInt(urlSellerId)).to.equal(responseSellerId);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}//api/1/123123/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"",
+								"api",
+								"1",
+								"123123",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. get ads with invalid sellerID",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Проверка статус-кода 400\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"// Проверка структуры JSON в теле ответа\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('object');\r",
+									"    pm.expect(responseJson).to.have.all.keys([\r",
+									"        \"result\",\r",
+									"        \"status\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result).to.be.an('object');\r",
+									"    pm.expect(responseJson.result).to.have.all.keys([\r",
+									"        \"message\",\r",
+									"        \"messages\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result.message).to.be.a('string');\r",
+									"    pm.expect(responseJson.result.messages).to.be.an('object');\r",
+									"    pm.expect(responseJson.status).to.equal(\"400\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}//api/1/maks12/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"",
+								"api",
+								"1",
+								"maks12",
+								"item"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. get ads with sellerID with 0 ads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body is an empty array\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"    pm.expect(responseJson).to.be.an('array').that.is.empty;\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}//api/1/545432/item",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"",
+								"api",
+								"1",
+								"545432",
+								"item"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "4) get statistics by id",
+			"item": [
+				{
+					"name": "1. get statistics with valid ad id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('array');\r",
+									"    pm.expect(responseJson[0]).to.have.all.keys([\r",
+									"        \"contacts\",\r",
+									"        \"likes\",\r",
+									"        \"viewCount\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson[0].contacts).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].likes).to.be.a('number');\r",
+									"    pm.expect(responseJson[0].viewCount).to.be.a('number');\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/statistic/e2d32734-371b-4e98-9d1e-aac8fdd6104c",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"statistic",
+								"e2d32734-371b-4e98-9d1e-aac8fdd6104c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2. get statistics with nonexistent id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('object');\r",
+									"    pm.expect(responseJson).to.have.all.keys([\r",
+									"        \"result\",\r",
+									"        \"status\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result).to.be.an('object');\r",
+									"    pm.expect(responseJson.result).to.have.all.keys([\r",
+									"        \"message\",\r",
+									"        \"messages\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result.message).to.be.a('string');\r",
+									"    pm.expect(responseJson.result.messages).to.be.null;\r",
+									"    pm.expect(responseJson.status).to.equal(\"404\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/statistic/11111111-0000-2222-3333-000000000000",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"statistic",
+								"11111111-0000-2222-3333-000000000000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3. get statistics with invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Status code is 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response body matches expected structure\", function () {\r",
+									"    const responseJson = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseJson).to.be.an('object');\r",
+									"    pm.expect(responseJson).to.have.all.keys([\r",
+									"        \"result\",\r",
+									"        \"status\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result).to.be.an('object');\r",
+									"    pm.expect(responseJson.result).to.have.all.keys([\r",
+									"        \"message\",\r",
+									"        \"messages\"\r",
+									"    ]);\r",
+									"\r",
+									"    pm.expect(responseJson.result.message).to.be.a('string');\r",
+									"    pm.expect(responseJson.result.messages).to.be.a('object');\r",
+									"    pm.expect(responseJson.status).to.equal(\"400\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/api/1/statistic/maks123",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"api",
+								"1",
+								"statistic",
+								"maks123"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://qa-internship.avito.com",
+			"type": "string"
+		}
+	]
+}
