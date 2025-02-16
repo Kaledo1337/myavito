@@ -16,7 +16,7 @@
 * ### Открыть Postman
 * ### Нажать в левом верхнем углу на кнопку `import`.
    <img src="https://github.com/Kaledo1337/myavito/blob/main/images/import_avito.png" title="avitoQA" alt="avitoQA" style ="max-width: 100%"/>
-* ### Выбрать файл с именем `AvitoCollection.postman_collection.json`.
+* ### Выбрать файл с именем `AvitoQACollection.postman_collection.json`.
 ---
 ## Запуск коллекции.
 ---
